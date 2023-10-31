@@ -35,7 +35,7 @@ class SuratMasukController extends Controller
     public function Cetak($tangal_awal, $tanggal_akhir){
         $cetak = surat_masuk::with('perihal')->whereBetween('tanggal_terima', [$tangal_awal, $tanggal_akhir])->get();
         $jumlah = surat_masuk::with('perihal')->whereBetween('tanggal_terima', [$tangal_awal, $tanggal_akhir])->count();
-        $pegawai = pegawai::find(197402102006012013);
+        $pegawai = pegawai::find(197402102006012013); // nge find berdasarkan nip kepala bidang jika di data pegawai nip ini tidak ada maka aplikasi error
         $jabatan = pegawai::with('jabatan')->get();
         return view('surat_masuk.cetak', compact('cetak', 'jumlah', 'pegawai', 'jabatan'));
     }
