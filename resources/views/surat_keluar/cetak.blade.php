@@ -79,10 +79,6 @@
         </tr>
         @endforeach
     </table>
-    <h2>Jumlah : {{ $jumlah }}</h2>
-    <h3>{{ $pegawai -> jabatan -> nama_jabatan }}</h3><br>
-    <h3 style="margin-right: 50px">{{ $pegawai -> nama }}</h3>
-    <h3>{{ $pegawai -> id }}</h3>
     </div>
     
 

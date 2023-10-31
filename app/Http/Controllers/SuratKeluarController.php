@@ -33,9 +33,7 @@ class SuratKeluarController extends Controller
     public function Cetak($tangal_awal, $tanggal_akhir){
         $cetak = surat_keluar::with('perihal')->whereBetween('tanggal_surat', [$tangal_awal, $tanggal_akhir])->get();
         $jumlah = surat_keluar::with('perihal')->whereBetween('tanggal_surat', [$tangal_awal, $tanggal_akhir])->count();
-        $pegawai = pegawai::find(197402102006012013);
-        $jabatan = pegawai::with('jabatan')->get();
-        return view('surat_keluar.cetak', compact('cetak', 'jumlah', 'pegawai', 'jabatan'));
+        return view('surat_keluar.cetak', compact('cetak', 'jumlah',));
     }
 
     public function TambahSuratKeluar(){
